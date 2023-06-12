@@ -8,6 +8,7 @@ packages = [{include = "hse_algo"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
+django = "^4.2.2"
 
 
 [tool.poetry.group.dev.dependencies]
