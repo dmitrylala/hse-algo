@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "hse-algo"
+version = "0.1.0"
+description = "Site using Django"
+authors = ["Dmitry Nesterov <dim.nesterov2015@gmail.com>"]
+readme = "README.md"
+packages = [{include = "hse_algo"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[tool.poetry.group.dev.dependencies]
+black = ">=23.3.0"
+ruff = ">=0.0.261"
+pre-commit = ">=3.2.2"
+
+[tool.black]
+line-length = 100
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
