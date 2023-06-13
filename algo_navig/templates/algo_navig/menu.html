@@ -1,0 +1,28 @@
+<html>
+{% load static %}
+
+<head>
+    <meta charset="utf-8">
+    {% block title %} {% endblock %}
+    <link rel="stylesheet" href="{% static 'algo/css/navigation.css' %}" />
+</head>
+
+<body>
+    <div>
+        <div class="navigation">
+            <table width="100%">
+                <tr>
+                    {% for item in menu_items %}
+                    <td class="{% if pk == item.id %}active{% else %}inactive{% endif %}">
+                        <a href="{% url 'algo_navig:page' pk=item.id %}"> {{ item.navig }} </a>
+                    </td>
+                    {% endfor %}
+                </tr>
+            </table>
+        </div>
+    </div>
+    {% block content %}
+    {% endblock %}
+</body>
+
+</html>
