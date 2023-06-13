@@ -1,13 +1,13 @@
 from django.forms.models import model_to_dict
-from django.http import HttpRequest, HttpResponseRedirect
-from django.shortcuts import render
-from django.urls import reverse
+from django.http import HttpRequest
+from django.shortcuts import redirect, render
 from django.views import generic
 
 from .forms import TaskForm
 from .models import Result
 from .utils import (
     compute_stats,
+    filter_options,
     solve_task,
     sort_options,
 )
@@ -15,6 +15,10 @@ from .utils import (
 
 def index(request: HttpRequest):
     return render(request, "algo/index.html")
+
+
+def empty_history(request: HttpRequest):
+    return render(request, "algo/empty_history.html")
 
 
 def task(request: HttpRequest):
@@ -30,7 +34,7 @@ def task(request: HttpRequest):
         result = Result(task=task, is_increasing=is_increasing, is_decreasing=is_decreasing)
         result.save()
 
-        return HttpResponseRedirect(reverse("algo:task_result", args=(result.pk,)))
+        return redirect("algo:task_result", result.pk)
 
     return render(request, "algo/task.html", {"form": task_form})
 
@@ -46,6 +50,14 @@ class ResultListView(generic.ListView):
     template_name = "algo/history.html"
     context_object_name = "results"
 
+    def get(self, *args, **kwargs):
+        if not Result.objects.exists():
+            return redirect("algo:empty_history")
+        return super().get(*args, **kwargs)
+
+    def get_url_params(self):
+        return {k: v[0] for k, v in dict(self.request.GET).items()}
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
@@ -55,11 +67,21 @@ class ResultListView(generic.ListView):
         # sorting options
         context.update(**sort_options())
 
+        # filtering options
+        context.update(**filter_options())
+
         return context
 
     def get_queryset(self):
         queryset = Result.objects.all()
-        order_by = self.request.GET.get("order_by")
+        url_params = self.get_url_params()
+
+        order_by = url_params.get("order_by")
         if order_by:
             return queryset.order_by(order_by)
+
+        filter_by = url_params.get("filter_by")
+        if filter_by:
+            return queryset.filter(**{filter_by: True})
+
         return queryset

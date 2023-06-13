@@ -15,6 +15,7 @@ namespace-packages = ["hse_algo"]
 [per-file-ignores]
 # Ignore 'F401' (unused-import) in all '__init__.py' files.
 "__init__.py" = ["F401"]
+"utils.py" = ["RUF001"]
 
 [pydocstyle]
 convention = "google"

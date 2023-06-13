@@ -23,12 +23,12 @@
         <tbody style="border-top: 0px;">
             {% for result in results %}
             <tr>
-                <td>{{ task_result.task.a }}</td>
-                <td>{{ task_result.task.b }}</td>
-                <td>{{ task_result.task.c }}</td>
-                <td>{% if task_result.is_increasing %}Да!{% else %}Нет :({% endif %}</td>
-                <td>{% if task_result.is_decreasing %}Да!{% else %}Нет :({% endif %}</td>
-                <td>{{ task_result.task.timestamp }}</td>
+                <td>{{ result.task.a }}</td>
+                <td>{{ result.task.b }}</td>
+                <td>{{ result.task.c }}</td>
+                <td>{% if result.is_increasing %}Да!{% else %}Нет :({% endif %}</td>
+                <td>{% if result.is_decreasing %}Да!{% else %}Нет :({% endif %}</td>
+                <td>{{ result.task.timestamp }}</td>
             </tr>
             {% endfor %}
         </tbody>
@@ -40,6 +40,7 @@
     <ul>
         {% for stat in stats %}
         <li>{{ stat.description }}: {{ stat.value }}</li>
+        {% endfor %}
     </ul>
 
     <p>
@@ -54,6 +55,23 @@
         </li>
         {% endfor %}
     </ul>
+
+    <p>
+        Фильтрация
+    </p>
+    <ul>
+        {% for filter_option in filter_options %}
+        <li>
+            <a href="{{ history }}?filter_by={{ filter_option.field }}">
+                {{ filter_option.description }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <p>
+        <a href="{{ history }}">Сброс</a>
+    </p>
 </center>
 
 {% endblock content %}

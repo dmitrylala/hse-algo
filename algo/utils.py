@@ -64,3 +64,18 @@ def sort_options():
             },
         ],
     }
+
+
+def filter_options():
+    return {
+        "filter_options": [
+            {
+                "field": "is_increasing",
+                "description": "Выполняется ли A < B < C",
+            },
+            {
+                "field": "is_decreasing",
+                "description": "Выполняется ли A > B > C",
+            },
+        ],
+    }
