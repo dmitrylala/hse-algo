@@ -6,6 +6,11 @@ from typing import (
 
 from django.db.models import Avg, Max
 from django.db.models.query import QuerySet
+from django.template import Context, Template
+
+
+def render_content(template: str, context: dict):
+    return Template(template).render(Context(context))
 
 
 def format_stat(stat: float) -> str:

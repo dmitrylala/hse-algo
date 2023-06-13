@@ -4,6 +4,6 @@ from . import views
 
 app_name = "algo_navig"
 urlpatterns = [
-    path("", views.first_page),
+    path("", views.index),
     path("page/<int:pk>", views.page, name="page"),
 ]
