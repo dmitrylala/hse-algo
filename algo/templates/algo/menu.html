@@ -1,0 +1,35 @@
+<html>
+{% load static %}
+{% url 'algo:index' as index %}
+{% url 'algo:task' as task %}
+{% url 'algo:history' as history %}
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Алгоритмическая задача</title>
+    <link rel="stylesheet" href="{% static 'algo/css/navigation.css' %}" />
+</head>
+
+<body>
+    <div>
+        <div class="navigation">
+            <table width="100%">
+                <tr>
+                    <td class="{% if request.path == index %}active{% else %}inactive{% endif %}">
+                        <a href="{{ index }}"> Главная </a>
+                    </td>
+                    <td class="{% if request.path == task %}active{% else %}inactive{% endif %}">
+                        <a href="{{ task }}"> Форма </a>
+                    </td>
+                    <td class="{% if request.path == history %}active{% else %}inactive{% endif %}">
+                        <a href="{{ history }}"> История решений </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    {% block content %} {% endblock content %}
+</body>
+
+</html>

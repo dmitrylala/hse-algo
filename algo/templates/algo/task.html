@@ -1,0 +1,14 @@
+{% extends "algo/menu.html" %} {% load static %} {% block content %}
+
+<center>
+    <h2>Введите входные данные</h2>
+</center>
+
+<form action="{% url 'algo:task' %}" method="post">
+    {% csrf_token %}
+    <center>
+        {{ form.as_p }}
+        <input type="submit" value="Решить" />
+    </center>
+</form>
+{% endblock content %}

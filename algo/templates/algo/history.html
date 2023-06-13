@@ -1,0 +1,59 @@
+{% extends "algo/menu.html" %} {% load static %} {% block content %}
+
+<style>
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+</style>
+
+<center>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Число A</th>
+                <th scope="col">Число B</th>
+                <th scope="col">Число C</th>
+                <th scope="col">A < B < C</th>
+                <th scope="col">A > B > C</th>
+                <th scope="col">Дата</th>
+            </tr>
+        </thead>
+        <tbody style="border-top: 0px;">
+            {% for result in results %}
+            <tr>
+                <td>{{ task_result.task.a }}</td>
+                <td>{{ task_result.task.b }}</td>
+                <td>{{ task_result.task.c }}</td>
+                <td>{% if task_result.is_increasing %}Да!{% else %}Нет :({% endif %}</td>
+                <td>{% if task_result.is_decreasing %}Да!{% else %}Нет :({% endif %}</td>
+                <td>{{ task_result.task.timestamp }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <p>
+        Статистики
+    </p>
+    <ul>
+        {% for stat in stats %}
+        <li>{{ stat.description }}: {{ stat.value }}</li>
+    </ul>
+
+    <p>
+        Сортировка
+    </p>
+    <ul>
+        {% for sort_option in sort_options %}
+        <li>
+            <a href="{{ history }}?order_by={{ sort_option.field }}">
+                {{ sort_option.description }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</center>
+
+{% endblock content %}
