@@ -23,3 +23,22 @@ update-dev: ## Update development dependencies and pre-commit hooks
 
 test: ## Run all tests
 	pytest
+
+build: ## Build docker image from dockerfile
+	DOCKER_BUILDKIT=1 docker build --no-cache \
+		-f Dockerfile \
+		--network=host \
+		-t django-site .
+
+run: ## Create docker container from image and run
+	docker run -dit \
+		--name django-server \
+		-p 127.0.0.1:8000:8080 \
+		--network host \
+		django-site python manage.py runserver 8000
+
+start: ## Start created container
+	docker start django-server
+
+stop: ## Stop running container
+	docker stop django-server
