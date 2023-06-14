@@ -1,0 +1,235 @@
+{% extends "website/base.html" %}
+{% load static %}
+{% block title %}
+<div class="logo">Green Tennis Club</div>
+{% endblock title %}
+
+{% block navigation %}
+<div id="header" style="display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 80px;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
+    cursor: pointer;">
+    <div onclick="window.location.href={% url 'website:websiteApp-home' %}">Green Tennis Club</div>
+    <div>
+        <ul class="nav" style="display: flex; align-content: center; justify-content: center;">
+            <li style="padding: 0 20px; position: relative;"><a
+                    style="font-size: 16px; font-weight: 600; color: black; transition: 0.3s ease;"
+                    href="{% url 'website:websiteApp-home' %}">
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                </a></li>
+            <li style="padding: 0 20px; position: relative;"><a
+                    style="font-size: 16px; font-weight: 600; color: black; transition: 0.3s ease;"
+                    href="{% url 'website:websiteApp-courts' %}">Tennis Courts</a></li>
+            <li style="padding: 0 20px; position: relative;"><a
+                    style="font-size: 16px; font-weight: 600; color: burlywood; transition: 0.3s ease;" class="active"
+                    href="{% url 'website:websiteApp-store' %}">Equipment Store</a></li>
+            <li style="padding: 0 20px; position: relative;"><a
+                    style="font-size: 16px; font-weight: 600; color: black; transition: 0.3s ease;"
+                    href="{% url 'website:websiteApp-info' %}">Contact Info</a></li>
+            <li style="padding: 0 20px; position: relative;"><a
+                    style="font-size: 16px; font-weight: 600; color: black; transition: 0.3s ease;"
+                    href="{% url 'website:websiteApp-store_result' %}">
+                    <i class="far fa-shopping-bag" aria-hidden="true"></i>
+                </a></li>
+        </ul>
+    </div>
+</div>
+{% endblock navigation %}
+
+{% block sproduct1 %}
+<button onclick="window.history.back()"
+    style="margin: 10px; background-color: white; cursor: pointer; border-color: white;padding: 4px 40px 5px 30px;">Go
+    Back</button>
+<div id="prodetails" class="section-p1" style="display: flex;
+    margin-top: 20px;">
+    <div class="prod-img" style="width: 40%;
+    margin-right: 50px;">
+        <img src="{% static 'images/nike_shoes.jpg' %}" width="100%" id="MainImg" alt="">
+    </div>
+    <div class="prod-details" style="width: 50%;
+    padding-top: 30px;">
+        <h6>Home / Shoes</h6>
+        <h4>Men's Tennis Shoes</h4>
+        <h2>$120.00</h2>
+        <select style="padding: 5px 10px; margin-bottom: 10px;">
+            <option>Select Size</option>
+            <option>36</option>
+            <option>37</option>
+            <option>38</option>
+            <option>39</option>
+            <option>40</option>
+        </select>
+        <input style=" width: 50px;
+    height: 29px;
+    padding-left: 10px;
+    font-size: 16px;
+    margin-right: 10px;" type="number" value="1">
+        <h4>Product Details</h4>
+        <span>If you’re a beginning tennis player, you might benefit from a shoe that has a lot of cushioning in the
+            sole and is high at your ankles and heel; this will support your heel when you’re still not in full control
+            of your movements in a new sport. Adidas GameCourt has the perfect sock-like fit that hugs your foot in
+            these situations.</span>
+    </div>
+</div>
+
+<div id="product1" style="text-align: center" class="section-p1">
+    <h2 style="font-size: 40px; line-height: 54px; color: black;">Our Products</h2>
+    <p style="font-weight: 16; color: lightgray; margin: 15px 0 20px 0;">Summer Collection New Design</p>
+    <div class="pro-container"
+        style="display: flex; justify-content: space-between; padding-top: 20px; flex-wrap: wrap;">
+
+        <div class="pro"
+            style="width: 23%; min-width: 250px; padding: 10px 12px; border: 1px solid lightgrey; border-radius: 25px; cursor: pointer; margin: 15px 0; transition: 0.2s ease; position: relative;"
+            onclick="window.location.href='http://127.0.0.1:8000/websiteApp/store/sproduct1/';">
+            <p>
+                {% load static %}<img style="width: 100%; border-radius: 20px;"
+                    src="{% static 'images/adidas_shoes.jpg' %}" alt="">
+            </p>
+            <div class="desc" style="text-align: start; padding: 10px 0;">
+                <span style="color: darkgray; font-size: 12px">adidas</span>
+                <h5 style="padding-top: 7px; font-size: 14px; color: black;">Adizero Cubersonic Tennis Shoes</h5>
+                <div class="star" style="font-size: 12px; color: rgb(243, 181, 25);">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <h4 style="font-size: 15px; font-weight: 700; color: black;">98$</h4>
+            </div>
+
+        </div>
+
+        <div class="pro"
+            style="width: 23%; min-width: 250px; padding: 10px 12px; border: 1px solid lightgrey; border-radius: 25px; cursor: pointer; margin: 15px 0; transition: 0.2s ease; position: relative; --button-hover-bg: 20px 20px 30px rgba(0, 0, 0, 0.06)"
+            onclick="window.location.href='http://127.0.0.1:8000/websiteApp/store/sproduct2/';">
+            <p>
+                {% load static %}<img style="width: 100%; border-radius: 20px;"
+                    src="{% static 'images/adidas_shoes2.jpg' %}" alt="">
+            </p>
+            <div class="desc" style="text-align: start; padding: 10px 0;">
+                <span style="color: darkgray; font-size: 12px">adidas</span>
+                <h5 style="padding-top: 7px; font-size: 14px; color: black;">Adizero Ubersonic 4 Tennis Shoes</h5>
+                <div class="star" style="font-size: 12px; color: rgb(243, 181, 25);">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <h4 style="font-size: 15px; font-weight: 700; color: black;">92$</h4>
+            </div>
+        </div>
+
+        <div class="pro"
+            style="width: 23%; min-width: 250px; padding: 10px 12px; border: 1px solid lightgrey; border-radius: 25px; cursor: pointer; margin: 15px 0; transition: 0.2s ease; position: relative; --button-hover-bg: 20px 20px 30px rgba(0, 0, 0, 0.06)"
+            onclick="window.location.href='http://127.0.0.1:8000/websiteApp/store/sproduct4/';">
+            <p>
+                {% load static %}<img style="width: 100%; border-radius: 20px;"
+                    src="{% static 'images/nike_shoes2.jpg' %}" alt="">
+            </p>
+            <div class="desc" style="text-align: start; padding: 10px 0;">
+                <span style="color: darkgray; font-size: 12px">Nike</span>
+                <h5 style="padding-top: 7px; font-size: 14px; color: black;">NikeCourt Air Zoom Vapor Pro 9.5 Tour
+                    Premium</h5>
+                <div class="star" style="font-size: 12px; color: rgb(243, 181, 25);">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <h4 style="font-size: 15px; font-weight: 700; color: black;">144$</h4>
+            </div>
+        </div>
+
+        <div class="pro"
+            style="width: 23%; min-width: 250px; padding: 10px 12px; border: 1px solid lightgrey; border-radius: 25px; cursor: pointer; margin: 15px 0; transition: 0.2s ease; position: relative; --button-hover-bg: 20px 20px 30px rgba(0, 0, 0, 0.06)"
+            onclick="window.location.href='http://127.0.0.1:8000/websiteApp/store/sproduct5/';">
+            <p>
+                {% load static %}<img style="width: 100%; border-radius: 20px;"
+                    src="{% static 'images/nike_shoes3.jpg' %}" alt="">
+            </p>
+            <div class="desc" style="text-align: start; padding: 10px 0;">
+                <span style="color: darkgray; font-size: 12px">Nike</span>
+                <h5 style="padding-top: 7px; font-size: 14px; color: black;">NikeCourt React Vapor NXT</h5>
+                <div class="star" style="font-size: 12px; color: rgb(243, 181, 25);">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <h4 style="font-size: 15px; font-weight: 700; color: black;">136$</h4>
+            </div>
+        </div>
+        <div class="pro"
+            style="width: 23%; min-width: 250px; padding: 10px 12px; border: 1px solid lightgrey; border-radius: 25px; cursor: pointer; margin: 15px 0; transition: 0.2s ease; position: relative; --button-hover-bg: 20px 20px 30px rgba(0, 0, 0, 0.06)"
+            onclick="window.location.href='sproduct6.html'">
+            <p>
+                {% load static %}<img style="width: 100%; border-radius: 20px;"
+                    src="{% static 'images/racquet_head.jpg' %}" alt="">
+            </p>
+            <div class="desc" style="text-align: start; padding: 10px 0;">
+                <span style="color: darkgray; font-size: 12px">Head</span>
+                <h5 style="padding-top: 7px; font-size: 14px; color: black;">Head Challenge PRO</h5>
+                <div class="star" style="font-size: 12px; color: rgb(243, 181, 25);">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <h4 style="font-size: 15px; font-weight: 700; color: black;">236$</h4>
+            </div>
+        </div>
+        <div class="pro"
+            style="width: 23%; min-width: 250px; padding: 10px 12px; border: 1px solid lightgrey; border-radius: 25px; cursor: pointer; margin: 15px 0; transition: 0.2s ease; position: relative; --button-hover-bg: 20px 20px 30px rgba(0, 0, 0, 0.06)"
+            onclick="window.location.href='sproduct7.html'">
+            <p>
+                {% load static %}<img style="width: 100%; border-radius: 20px;"
+                    src="{% static 'images/racquet_head2.jpg' %}" alt="">
+            </p>
+            <div class="desc" style="text-align: start; padding: 10px 0;">
+                <span style="color: darkgray; font-size: 12px">Head</span>
+                <h5 style="padding-top: 7px; font-size: 14px; color: black;">Head Spark PRO</h5>
+                <div class="star" style="font-size: 12px; color: rgb(243, 181, 25);">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <h4 style="font-size: 15px; font-weight: 700; color: black;">349$</h4>
+            </div>
+        </div>
+        <div class="pro"
+            style="width: 23%; min-width: 250px; padding: 10px 12px; border: 1px solid lightgrey; border-radius: 25px; cursor: pointer; margin: 15px 0; transition: 0.2s ease; position: relative; --button-hover-bg: 20px 20px 30px rgba(0, 0, 0, 0.06)"
+            onclick="window.location.href='sproduct8.html'">
+            <p>
+                {% load static %}<img style="width: 100%; border-radius: 20px;"
+                    src="{% static 'images/recquet_head3.jpg' %}" alt="">
+            </p>
+            <div class="desc" style="text-align: start; padding: 10px 0;">
+                <span style="color: darkgray; font-size: 12px">Head</span>
+                <h5 style="padding-top: 7px; font-size: 14px; color: black;">Head Lite PRO</h5>
+                <div class="star" style="font-size: 12px; color: rgb(243, 181, 25);">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <h4 style="font-size: 15px; font-weight: 700; color: black;">299$</h4>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock sproduct1 %}

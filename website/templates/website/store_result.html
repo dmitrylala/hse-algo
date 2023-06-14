@@ -1,0 +1,15 @@
+{% extends "website/base.html" %}
+
+{% block results %}
+{% load static %}
+<div id="pk" name={{ urls.last_url_element }}>{{ urls.last_url_element }}</div>
+<h5 class="card-title text-center" style="font-size: 40px; line-height: 54px; color: black;">Thank You for the Purchase!
+</h5>
+{# path_element: {{path_element.path_element}}#}
+{# <br>objects_array: {{objects_array.objects_array}}#}
+<div class="card">
+    <div class="card-body">
+        {{ d }}
+    </div>
+</div>
+{% endblock %}

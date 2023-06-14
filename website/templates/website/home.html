@@ -1,0 +1,61 @@
+{% extends "website/base.html" %}
+{% load static %}
+{% block title %}
+<div class="logo">Green Tennis Club</div>
+{% endblock title %}
+
+{% block navigation %}
+<div id="header" style="display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 80px;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
+    cursor: pointer;">
+    <div onclick="window.location.href={% url 'website:websiteApp-home' %}">Green Tennis Club</div>
+    <div>
+        <ul class="nav" style="display: flex; align-content: center; justify-content: center;">
+            <li style="padding: 0 20px; position: relative;"><a
+                    style="font-size: 16px; font-weight: 600; color: burlywood; transition: 0.3s ease;" class="active"
+                    href="{% url 'website:websiteApp-home' %}">
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                </a></li>
+            <li style="padding: 0 20px; position: relative;"><a
+                    style="font-size: 16px; font-weight: 600; color: black; transition: 0.3s ease;"
+                    href="{% url 'website:websiteApp-courts' %}">Tennis Courts</a></li>
+            <li style="padding: 0 20px; position: relative;"><a
+                    style="font-size: 16px; font-weight: 600; color: black; transition: 0.3s ease;"
+                    href="{% url 'website:websiteApp-store' %}">Equipment Store</a></li>
+            <li style="padding: 0 20px; position: relative;"><a
+                    style="font-size: 16px; font-weight: 600; color: black; transition: 0.3s ease;"
+                    href="{% url 'website:websiteApp-info' %}">Contact Info</a></li>
+            <li style="padding: 0 20px; position: relative;"><a
+                    style="font-size: 16px; font-weight: 600; color: black; transition: 0.3s ease;"
+                    href="{% url 'website:websiteApp-store_result' %}">
+                    <i class="far fa-shopping-bag" aria-hidden="true"></i>
+                </a></li>
+        </ul>
+    </div>
+</div>
+{% endblock navigation %}
+
+{% block information %}
+
+<body style="background-image: url('{% static 'images/main_image.jpg'%}');">
+    <div class="container"
+        style="height: 100vh; width: 100%; background-position: top 25% right 0; background-size: cover; padding: 0 80px; display: flex; flex-direction: column; align-items: flex-start; justify-content: center;">
+        <h1>THE BEST TENNIS CLUB IN SPb</h1>
+        <h2 style="color: bisque">New indoor and outdoor courts are available</h2>
+        <h4 style="color: white">Brand-new sportswear and equipment store</h4>
+        <p>20% discount on annual subscription for regular customers</p>
+        <button onclick="window.location.href='https://elagin.tennis/#';"
+            style="cursor: pointer; color: white; background-color: transparent; padding: 14px 80px 14px 65px; background-repeat: no-repeat; font-weight: 700;font-size: 15px">
+            Show Details
+        </button>
+    </div>
+</body>
+{% endblock information %}

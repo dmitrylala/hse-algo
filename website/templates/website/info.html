@@ -1,0 +1,106 @@
+{% extends "website/base.html" %}
+
+{% load static %}
+{% block title %}
+<div class="logo">Green Tennis Club</div>
+{% endblock title %}
+
+{% block navigation %}
+<div id="header" style="display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 80px;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
+    cursor: pointer;">
+    <div onclick="window.location.href={% url 'website:websiteApp-home' %}">Green Tennis Club</div>
+    <div>
+        <ul class="nav" style="display: flex; align-content: center; justify-content: center;">
+            <li style="padding: 0 20px; position: relative;"><a
+                    style="font-size: 16px; font-weight: 600; color: black; transition: 0.3s ease;"
+                    href="{% url 'website:websiteApp-home' %}">
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                </a></li>
+            <li style="padding: 0 20px; position: relative;"><a
+                    style="font-size: 16px; font-weight: 600; color: black; transition: 0.3s ease;"
+                    href="{% url 'website:websiteApp-courts' %}">Tennis Courts</a></li>
+            <li style="padding: 0 20px; position: relative;"><a
+                    style="font-size: 16px; font-weight: 600; color: black; transition: 0.3s ease;"
+                    href="{% url 'website:websiteApp-store' %}">Equipment Store</a></li>
+            <li style="padding: 0 20px; position: relative;"><a
+                    style="font-size: 16px; font-weight: 600; color: burlywood; transition: 0.3s ease;" class="active"
+                    href="{% url 'website:websiteApp-info' %}">Contact Info</a></li>
+            <li style="padding: 0 20px; position: relative;"><a
+                    style="font-size: 16px; font-weight: 600; color: black; transition: 0.3s ease;"
+                    href="{% url 'website:websiteApp-store_result' %}">
+                    <i class="far fa-shopping-bag" aria-hidden="true"></i>
+                </a></li>
+        </ul>
+    </div>
+</div>
+{% endblock navigation %}
+
+{% block form %}
+<div id="contact-details" class="section-p1"
+    style="display: flex; align-content: center; justify-content: space-between;">
+    <div class="details" style="width: 50%;">
+        <span style="font-size: 15px;">GET IN TOUCH</span>
+        <h2 style="color: black;font-size: 30px; line-height: 35px; padding: 20px 0;">Visit our club locations or
+            contact us online</h2>
+        <h3 style="font-size: 16px; padding-bottom: 15px;">Head Office</h3>
+        <div>
+            <li style="list-style: none; display: flex; padding: 10px 0;">
+                <i style="font-size: 20px; padding-right: 22px;" class="fa fa-location-arrow"></i>
+                <p style="font-size: 20px; margin: 0; color: dimgray">Kantemirovskaya Street 3A St. Petersburg</p>
+            </li>
+            <li style="list-style: none; display: flex; padding: 10px 0;">
+                <i style="font-size: 20px; padding-right: 22px;" class="far fa-envelope"></i>
+                <p style="font-size: 20px; margin: 0; color: dimgray">aerudko@edu.hse.ru</p>
+            </li>
+            <li style="list-style: none; display: flex; padding: 10px 0;">
+                <i style="font-size: 20px; padding-right: 22px;" class="fas fa-phone-alt"></i>
+                <p style="font-size: 20px; margin: 0; color: dimgray">+79125446999</p>
+            </li>
+        </div>
+    </div>
+    <div class="map" style="width: 55%; height: 400px;">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3689.2757878656616!2d30.32881950132888!3d59.977623045288816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x469630d371bb1e47%3A0xe7ef95ba0296c9c3!2z0JLRi9GB0YjQsNGPINGI0LrQvtC70LAg0Y3QutC-0L3QvtC80LjQutC4INCyINCf0LXRgtC10YDQsdGD0YDQs9C1!5e0!3m2!1sru!2sru!4v1679303503221!5m2!1sru!2sru"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</div>
+
+<div id="form-details" class="section-p1" style="display: flex; align-content: center; justify-content: space-between;">
+    <form action="https://yandex.ru/search/" method='get' target='_blank'>
+        <div class="mb-3">
+            <label class="form-label" for="exampleSecondName">Last Name</label>
+            <input aria-describedby="secondNameHelp" class="form-control" id="secondName" type="text" name="text"
+                value="Rudko">
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="exampleInputEmail1">Email address</label>
+            <input aria-describedby="emailHelp" class="form-control" id="exampleInputEmail1" type="email" name="email"
+                value="example@mail.com">
+            <div class="form-text" id="emailHelp">We'll never share your email with anyone else!</div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="exampleInputPassword1">Password</label>
+            <input class="form-control" id="exampleInputPassword1" type="password" name="password" value="10062002">
+        </div>
+        <div class="mb-3 form-check">
+            <input class="form-check-input" id="exampleCheck1" type="checkbox" name="checkbox">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <button
+            style="background-color: transparent; padding: 14px 80px 14px 65px; color: black; background-repeat: no-repeat; cursor: pointer; font-weight: 700; font-size: 15px; border-color: dimgray;"
+            class="btn btn-primary" type="submit">Submit</button>
+    </form>
+</div>
+{% endblock form %}
+
+7

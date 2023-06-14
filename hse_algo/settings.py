@@ -30,6 +30,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "website.apps.WebsiteConfig",
     "algo_navig.apps.AlgoNavigConfig",
     "algo.apps.AlgoConfig",
     "django.contrib.admin",

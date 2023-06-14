@@ -1,0 +1,126 @@
+{% extends "website/base.html" %}
+
+
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'static/mycss.css' %}">
+
+{% block navigation %}
+<div id="header" style="display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 80px;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
+    cursor: pointer;">
+    <div onclick="window.location.href={% url 'website:websiteApp-home' %}">Green Tennis Club</div>
+    <div>
+        <ul class="nav" style="display: flex; align-content: center; justify-content: center;">
+            <li style="padding: 0 20px; position: relative;"><a
+                    style="font-size: 16px; font-weight: 600; color: black; transition: 0.3s ease;"
+                    href="{% url 'website:websiteApp-home' %}">
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                </a></li>
+            <li style="padding: 0 20px; position: relative;"><a
+                    style="font-size: 16px; font-weight: 600; color: black; transition: 0.3s ease;"
+                    href="{% url 'website:websiteApp-courts' %}">Tennis Courts</a></li>
+            <li style="padding: 0 20px; position: relative;"><a
+                    style="font-size: 16px; font-weight: 600; color: burlywood; transition: 0.3s ease;" class="active"
+                    href="{% url 'website:websiteApp-store' %}">Equipment Store</a></li>
+            <li style="padding: 0 20px; position: relative;"><a
+                    style="font-size: 16px; font-weight: 600; color: black; transition: 0.3s ease;"
+                    href="{% url 'website:websiteApp-info' %}">Contact Info</a></li>
+            <li style="padding: 0 20px; position: relative;"><a
+                    style="font-size: 16px; font-weight: 600; color: black; transition: 0.3s ease;"
+                    href="{% url 'website:websiteApp-store_result' %}">
+                    <i class="far fa-shopping-bag" aria-hidden="true"></i>
+                </a></li>
+        </ul>
+    </div>
+</div>
+{% endblock navigation %}
+
+
+{% block store %}
+{% load static %}
+<div id="product1" style="text-align: center" class="section-p1">
+    <h2 style="font-size: 40px; line-height: 54px; color: black;">Our Products</h2>
+    <p style="font-weight: 16; color: lightgray; margin: 15px 0 20px 0;">Summer Collection New Design</p>
+    {# path_element: {{path_element.path_element}}#}
+    {# <br>objects_array: {{objects_array.objects_array}}#}
+
+    <div class="card">
+        <div class="card-body">
+            <form action="{% url 'website:websiteApp-store_result' %}" id="UserEnter" name="UserEnter" target="_blank">
+                <ul class="pros"
+                    style="list-style: none; display: flex; justify-content: space-between; padding-top: 20px; flex-wrap: wrap;">
+                    {% for object in dict_of_array.objects_array %}
+                    <li class="conta"
+                        style="width: 23%; min-width: 250px; padding: 10px 12px; border: 1px solid lightgrey; border-radius: 25px; cursor: pointer; margin: 15px 0; transition: 0.2s ease; position: relative;">
+                        <img style="width: 100%; border-radius: 20px;" src="{% static object.img %}" width="200px>">
+                        <h6 style="text-align: start; padding: 5px 0; color: darkgray; font-size: 14px">{{ object.title
+                            }}</h6>
+                        <p style="text-align: start; padding-top: 0px; font-size: 14px; color: black;">{{
+                            object.description }}</p>
+                        <div class="star" style="font-size: 12px; color: rgb(243, 181, 25);">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p style="font-size: 15px; font-weight: 700; color: black">${{ object.price }}</p>
+                        <input name="vendor_code" type="hidden" value={{ object.vendor_code }}>
+                        <br style="padding-top: 3px">Order <input style="width: 2.0rem;" name="amount" type="text"
+                            value=0>
+                        <div style="width: 23%; min-width: 250px; padding: 10px 12px; border: 1px solid lightgrey; border-radius: 25px; cursor: pointer; margin: 15px 0; transition: 0.2s ease; position: relative;"
+                            onclick="{{ object.onclick }}">Details</div>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <button
+                    style="background-color: transparent; padding: 14px 65px 14px 65px; color: black; background-repeat: no-repeat; cursor: pointer; font-weight: 700; font-size: 15px; border-color: dimgray;"
+                    class="btn btn-primary" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock store %}
+
+
+
+
+
+{% comment %}
+<ul>
+    {% for object in objects_array %}
+    <li>
+        {% for key, value in object.items %}
+        {{ key }}: {{ value }}
+        {{ value }}
+        {% endfor %}
+    </li>
+    {% endfor %}
+</ul>
+{% endcomment %}
+
+
+{% comment %}
+
+<li class="m-2 list-group-item">
+    <img src=${content[key].img} width="200px">
+    <h6>${content[key].title}</h6>
+    <p>${content[key].description}. Цена
+        ${content[key].price} р.</p>
+    <p>Заказать
+        <input type="hidden" name="vendor_code" value=${content[key].vendor_code}>
+        <input type="number" name="amount" value="0" style="width: 2.0rem;">
+    </p>
+</li>
+
+{% endcomment %}
