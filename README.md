@@ -2,6 +2,22 @@
 
 ## Usage
 
+### Running in container
+
+```console
+make build
+make run
+
+# now server is running at 127.0.0.1:8000
+# to stop:
+make stop
+
+# to start server:
+make start
+```
+
+### Running locally
+
 ```console
 # activating venv
 poetry shell

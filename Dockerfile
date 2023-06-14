@@ -13,4 +13,4 @@ RUN python -m pip install --upgrade pip && pip install poetry -U
 
 # Installing dependencies
 RUN poetry config virtualenvs.create false \
-    && poetry install
+    && poetry install --without dev
